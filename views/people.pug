@@ -1,0 +1,58 @@
+extends layout
+
+block content
+  //
+    some random
+    multiline comment
+  <p>This is vanila html</p>
+  a(href='https://google.com'
+    style={color: 'red', background: 'yellow'}) Google
+  div#main(class='div-class'
+           data-bar='foo'
+           data-baz='wiz')
+  input(
+    type='datetime-local'
+  )
+  - for(var x=0; x<3; x++)
+    li item
+  - var name = 'rajat'
+  div#second
+    p #{name} is good
+  .third
+    p this is third block with 'third' id.
+  #fourth
+    p this is the fourth one
+  - var message = 'Secret sauce'
+  #fifth
+    p(style={'font-weight': 'bold'}) #{message.toLowerCase()}
+    p interpolation works! \#{interpolation}
+    p this must be a
+      | multiline paragraph #[strong yeah!]
+      | .
+  #sixth
+    - var vals = [1, 2, 3]
+    ul
+      each val in vals.length ? vals : ['No elements']
+        li= val
+    - var n = 0
+    ul
+      while n < 4
+        li= n++
+  div#seventh
+    mixin mylist(items, bgcolor)
+      .list(style={'color': 'red', 'background': bgcolor})
+        ul(data-extra-if-any!=attributes.dataextra)
+          each val in items.length ? items : ['Empy list']
+            li= val
+    +mylist(['oranges', 'apples', 'watermelon'], 'yellow')
+    +mylist([34, 45, 56, 12, 30], 'blue')(dataextra='for-fun')
+  script.
+    (function (val) {
+      var maindiv = document.getElementById('main');
+      maindiv.innerHTML = val*val;
+    })(25);
+
+  include footer.pug
+
+block prepend extra
+  p Beginning of extra section
