@@ -1,6 +1,7 @@
 var express = require('express'),
   mongoose = require('mongoose'),
-  router = express.Router();
+  router = express.Router(),
+  People = require('../../models/people').People;
 
 router.get('/', function (req, res) {
   // save a new person

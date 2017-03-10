@@ -1,5 +1,4 @@
 var db = require('./mongoose');
-var models = require('./models');
 
 var express = require('express');
 var path = require('path');

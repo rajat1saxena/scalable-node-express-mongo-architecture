@@ -9,5 +9,5 @@ var PeopleSchema = Schema({
   address: {type: String}
 });
 
-People = mongoose.model('People', PeopleSchema);
+var People = mongoose.model('People', PeopleSchema);
 exports.People = People;
